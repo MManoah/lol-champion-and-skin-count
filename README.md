@@ -4,6 +4,7 @@ This little application made from Python using tkinter and the Riot LCU API allo
 
 ## How to install 
 **YOU MUST BE LOGGED INTO LEAGUE OF LEGENDS BEFORE YOU RUN THE APPLICATION**
+
 [Click Here To Download Application](https://github.com/MManoah/lol-champion-and-skin-grabber/releases/download/V.1.1/Champion.And.Skin.Grabber.zip)
 then extract all the files somewhere and run Champion And Skin Grabber.exe
 
