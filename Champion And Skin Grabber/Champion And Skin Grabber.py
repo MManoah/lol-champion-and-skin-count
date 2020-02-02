@@ -18,6 +18,10 @@ class MainWindow:
     owned_skin_count = 0
     skins_purchased_date = {}
     champions_purchased_date = {}
+    firstlast_champion_name = ['', '']
+    firstlast_champion_date = [253373599148000, 0]
+    firstlast_skin_name = ['', '']
+    firstlast_skin_date = [253373599148000, 0]
 
     def __init__(self, master):
         master.iconbitmap('Icon.ico')
@@ -92,7 +96,15 @@ class SkinsWindow:
         text['font'] = ('Courier', '12')
         text.place(relx=0.025, rely=0.02, relwidth=0.95, relheight=0.96)
         text.insert('end', 'To Copy Paste: Highlight all text then CTRL+C to copy and \nCTRL+V to paste\n\n')
-        text.insert('end', 'SKINS:\n')
+        if MainWindow.firstlast_skin_date[0] is not 253373599148000:
+            text.insert('end', 'First Skin: ' + MainWindow.firstlast_skin_name[0] + ' - ')
+            text.insert('end', datetime.fromtimestamp(MainWindow.firstlast_skin_date[0] / 1000.0).strftime(
+                '%B %d %Y %I:%M %p'))
+        if MainWindow.firstlast_skin_date[1] is not 0:
+            text.insert('end', '\nLast Skin: ' + MainWindow.firstlast_skin_name[1] + ' - ')
+            text.insert('end', datetime.fromtimestamp(MainWindow.firstlast_skin_date[1] / 1000.0).strftime(
+                '%B %d %Y %I:%M %p'))
+        text.insert('end', '\n\nSKINS:\n')
         if not date:
             temp = MainWindow.owned_champions[0]
             for x in range(len(MainWindow.owned_champions)):
@@ -142,7 +154,15 @@ class ChampionsWindow:
         text['font'] = ('Courier', '12')
         text.place(relx=0.025, rely=0.02, relwidth=0.95, relheight=0.96)
         text.insert('end', 'To Copy Paste: Highlight all text then CTRL+C to copy and \nCTRL+V to paste\n\n')
-        text.insert('end', 'CHAMPIONS:\n')
+        if MainWindow.firstlast_champion_date[0] is not 253373599148000:
+            text.insert('end', 'First Champion: ' + MainWindow.firstlast_champion_name[0] + ' - ')
+            text.insert('end', datetime.fromtimestamp(MainWindow.firstlast_champion_date[0] / 1000.0).strftime(
+                '%B %d %Y %I:%M %p'))
+        if MainWindow.firstlast_champion_date[1] is not 0:
+            text.insert('end', '\nLast Champion: ' + MainWindow.firstlast_champion_name[1] + ' - ')
+            text.insert('end', datetime.fromtimestamp(MainWindow.firstlast_champion_date[1] / 1000.0).strftime(
+                '%B %d %Y %I:%M %p'))
+        text.insert('end', '\n\nCHAMPIONS:\n')
         if not date:
             for x in MainWindow.owned_champions:
                 text.insert('end', '\n' + x)
@@ -172,10 +192,22 @@ def on_startup():
                         MainWindow.owned_champions.append('Wukong')
                         MainWindow.champions_purchased_date['Wukong'] = champion_data[x]['ownership']['rental'][
                             'purchaseDate']
+                        if MainWindow.firstlast_champion_date[0] > champion_data[x]['ownership']['rental']['purchaseDate']:
+                            MainWindow.firstlast_champion_name[0] = 'Wukong'
+                            MainWindow.firstlast_champion_date[0] = champion_data[x]['ownership']['rental']['purchaseDate']
+                        if MainWindow.firstlast_champion_date[1] < champion_data[x]['ownership']['rental']['purchaseDate']:
+                            MainWindow.firstlast_champion_name[1] = 'Wukong'
+                            MainWindow.firstlast_champion_date[1] = champion_data[x]['ownership']['rental']['purchaseDate']
                     else:
                         MainWindow.owned_champions.append(champion_data[x]['alias'])
                         MainWindow.champions_purchased_date[champion_data[x]['alias']] = \
                             champion_data[x]['ownership']['rental']['purchaseDate']
+                        if MainWindow.firstlast_champion_date[0] > champion_data[x]['ownership']['rental']['purchaseDate']:
+                            MainWindow.firstlast_champion_name[0] = champion_data[x]['alias']
+                            MainWindow.firstlast_champion_date[0] = champion_data[x]['ownership']['rental']['purchaseDate']
+                        if MainWindow.firstlast_champion_date[1] < champion_data[x]['ownership']['rental']['purchaseDate']:
+                            MainWindow.firstlast_champion_name[1] = champion_data[x]['alias']
+                            MainWindow.firstlast_champion_date[1] = champion_data[x]['ownership']['rental']['purchaseDate']
             skin_get = await connector.request('get', '/lol-champions/v1/inventories/' + summoner + '/skins-minimal')
             skin_get = await skin_get.json()
             for x in range(len(skin_get)):
@@ -184,6 +216,12 @@ def on_startup():
                     MainWindow.owned_skins.append(skin_get[x]['name'])
                     MainWindow.skins_purchased_date[skin_get[x]['name']] = skin_get[x]['ownership']['rental'][
                         'purchaseDate']
+                    if skin_get[x]['ownership']['rental']['purchaseDate'] < MainWindow.firstlast_skin_date[0]:
+                        MainWindow.firstlast_skin_date[0] = skin_get[x]['ownership']['rental']['purchaseDate']
+                        MainWindow.firstlast_skin_name[0] = skin_get[x]['name']
+                    if skin_get[x]['ownership']['rental']['purchaseDate'] > MainWindow.firstlast_skin_date[1]:
+                        MainWindow.firstlast_skin_date[1] = skin_get[x]['ownership']['rental']['purchaseDate']
+                        MainWindow.firstlast_skin_name[1] = skin_get[x]['name']
         else:
             exit(0)
 
