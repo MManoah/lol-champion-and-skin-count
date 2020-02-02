@@ -1,15 +1,17 @@
 # League of Legends Champion and Skin Grabber
 
-This little application made from Python using tkinter and the Riot LCU API allows you to view all the champions and skins that you own on your account
+This little application made from Python using tkinter and the Riot LCU API allows you to view all the champions and skins that you own on your account.
 
 ## How to install 
-[Click Here To Download Application](https://github.com/MManoah/lol-champion-and-skin-grabber/releases/download/V.1/Champion.And.Skin.Grabber.zip)
+**YOU MUST BE LOGGED INTO THE LEAGUE CLIENT BEFORE YOU RUN THE APPLICATION**
+
+[Click Here To Download Application](https://github.com/MManoah/lol-champion-and-skin-grabber/releases/download/V.1.1/Champion.And.Skin.Grabber.zip)
 then extract all the files somewhere and run Champion And Skin Grabber.exe
 
 [Releases](https://github.com/MManoah/lol-champion-and-skin-grabber/releases/)
 
 ## Project Overview
-![](https://i.gyazo.com/4c42cfc8cef1aad3417261dc93b7155b.png)
+![](https://i.gyazo.com/a7cd1252c761a8cf1064644a2701e99e.png)
 
 ## Built With
 
