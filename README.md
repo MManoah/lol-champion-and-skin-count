@@ -10,7 +10,7 @@ I removed the windows where it showed the champion and skin names because the le
 **YOU MUST BE LOGGED INTO THE LEAGUE CLIENT BEFORE YOU RUN THE APPLICATION**
 
 [Click Here To Download Application](https://github.com/MManoah/lol-champion-and-skin-count/releases/download/V.2.1/Champion.And.Skin.Count.zip)
-then extract all the files somewhere and run Champion And Skin Grabber.exe
+then extract all the files somewhere and run Champion And Skin Count.exe
 
 [Releases](https://github.com/MManoah/lol-champion-and-skin-grabber/releases/)
 
