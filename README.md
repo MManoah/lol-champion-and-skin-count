@@ -4,7 +4,7 @@ This little application made from Python using tkinter and the Riot LCU API allo
 
 # Updated
 
-I removed the windows where it shows the champion and skin names because the league client now does that for you 
+I removed the windows where it showed the champion and skin names because the league client now does that for you 
 
 ## How to install 
 **YOU MUST BE LOGGED INTO THE LEAGUE CLIENT BEFORE YOU RUN THE APPLICATION**
