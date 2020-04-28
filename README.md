@@ -1,17 +1,21 @@
-# League of Legends Champion and Skin Grabber
+# League of Legends Champion and Skin COUNT
 
-This little application made from Python using tkinter and the Riot LCU API allows you to view all the champions and skins that you own on your account.
+This little application made from Python using tkinter and the Riot LCU API allows you to see the amount of champions and skins that you own
+
+# Updated
+
+I removed the windows where it shows the champion and skin names because the league client now does that for you 
 
 ## How to install 
 **YOU MUST BE LOGGED INTO THE LEAGUE CLIENT BEFORE YOU RUN THE APPLICATION**
 
-[Click Here To Download Application](https://github.com/MManoah/lol-champion-and-skin-grabber/releases/download/V.1.1/Champion.And.Skin.Grabber.zip)
+[Click Here To Download Application](https://github.com/MManoah/lol-champion-and-skin-count/releases/download/V.2/Champion.And.Skin.Count.zip)
 then extract all the files somewhere and run Champion And Skin Grabber.exe
 
 [Releases](https://github.com/MManoah/lol-champion-and-skin-grabber/releases/)
 
 ## Project Overview
-![](https://i.gyazo.com/a7cd1252c761a8cf1064644a2701e99e.png)
+![](https://i.gyazo.com/7c8c14c97c11cff29183e6f501ce70c8.png)
 
 ## Built With
 
