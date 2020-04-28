@@ -1,4 +1,4 @@
-# League of Legends Champion and Skin COUNT
+# League of Legends Champion and Skin Count
 
 This little application made from Python using tkinter and the Riot LCU API allows you to see the amount of champions and skins that you own
 
